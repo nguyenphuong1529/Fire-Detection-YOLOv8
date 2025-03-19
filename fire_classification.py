@@ -26,10 +26,10 @@ val_generator, train_generator, test_generator = fetch_data_classification(path)
 #1data_visualize_classification(train_generator)
 
 #Loading the model
-model = tf.keras.models.load_model('./Fire-Detection-from-FLAME-Dataset/fire_classification_output/trained_model.h5')
+model = tf.keras.models.load_model('./Fire-Detection-YOLOv8/fire_classification_output/trained_model.h5')
 
 # Plotting the Training Metrices
-training_plot('./Fire-Detection-from-FLAME-Dataset/fire_classification_output/trained_model_history.npy')
+training_plot('./Fire-Detection-YOLOv8/fire_classification_output/trained_model_history.npy')
 
 #Evaluating the model
 score = model.evaluate(test_generator)
