@@ -96,7 +96,7 @@ def fetch_data_segmentation(path):
     datagen = tf.keras.preprocessing.image.ImageDataGenerator(validation_split=0.2)
 
     print('Validation Datset:')
-    image_val_generator = datagen.flow_from_directory(path + '/Images_Dataset',
+    image_val_generator = datagen.flow_from_directory(path + '/Images',
                                                       target_size=(512, 512),
                                                       color_mode='rgb',
                                                       class_mode=None,
@@ -104,7 +104,7 @@ def fetch_data_segmentation(path):
                                                       shuffle=False,
                                                       subset='validation')
 
-    mask_val_generator = datagen.flow_from_directory(path + '/Masks_Dataset',
+    mask_val_generator = datagen.flow_from_directory(path + '/Masks',
                                                      target_size=(512, 512),
                                                      color_mode='grayscale',
                                                      class_mode=None,
@@ -115,14 +115,14 @@ def fetch_data_segmentation(path):
     #val_generator = zip(image_val_generator, mask_val_generator)
     val_generator = ((img, mask) for img, mask in zip(image_val_generator, mask_val_generator))
     print('Training Datset:')
-    image_train_generator = datagen.flow_from_directory(path + '/Images_Dataset',
+    image_train_generator = datagen.flow_from_directory(path + '/Images',
                                                         target_size=(512, 512),
                                                         color_mode='rgb',
                                                         class_mode=None,
                                                         seed=100,
                                                         subset='training')
 
-    mask_train_generator = datagen.flow_from_directory(path + '/Masks_Dataset',
+    mask_train_generator = datagen.flow_from_directory(path + '/Masks',
                                                        target_size=(512, 512),
                                                        color_mode='grayscale',
                                                        class_mode=None,
