@@ -27,10 +27,10 @@ val_generator, train_generator = fetch_data_segmentation(path)
 data_visualize_segmentation(train_generator)
 
 #Load Saved model
-model = tf.keras.models.load_model('./Fire-Detection-from-FLAME-Dataset/fire_segmentation_output/trained_model.h5')
+model = tf.keras.models.load_model('./Fire-Detection-YOLOv8/fire_segmentation_output/trained_model.h5')
 
 # Plotting the Training Metrices
-training_plot('./Fire-Detection-from-FLAME-Dataset/fire_segmentation_output/trained_model_history.npy')
+training_plot('./Fire-Detection-YOLOv8/fire_segmentation_output/trained_model_history.npy')
 
 #Evaluating the model
 # score = model.evaluate(val_generator, steps=50)
