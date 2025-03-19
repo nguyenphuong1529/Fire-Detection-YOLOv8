@@ -29,14 +29,14 @@ def train_model(val_generator, train_generator, batchsize):
 
     # Visualising model architecture
     tf.keras.utils.plot_model(model,
-                              to_file='./Fire-Detection-from-FLAME-Dataset/fire_segmentation_output/unet_model.pdf',
+                              to_file='./Fire-Detection-YOLOv8/fire_segmentation_output/unet_model.pdf',
                               show_shapes=True,
                               show_layer_names=True,
                               show_layer_activations=True)
     # display(Image.open('unet_model.png'))
 
     # Saving Model Checkpoint
-    checkpoint = tf.keras.callbacks.ModelCheckpoint(filepath='.t/Fire-Detection-from-FLAME-Dataset/fire_segmentation_output/saved_weights_epoch{epoch:02d}.weghts.h5',
+    checkpoint = tf.keras.callbacks.ModelCheckpoint(filepath='./Fire-Detection-YOLOv8/fire_segmentation_output/saved_weights_epoch{epoch:02d}.weghts.h5',
                                                     monitor='accuracy',
                                                     verbose=1,
                                                     save_best_only=True,
@@ -66,8 +66,8 @@ def train_model(val_generator, train_generator, batchsize):
 
 
     # Saving the trained model
-    np.save('./Fire-Detection-from-FLAME-Dataset/fire_segmentation_output/trained_model_history.npy', hist.history)
-    model.save('./Fire-Detection-from-FLAME-Dataset/fire_segmentation_output/trained_model.h5')
+    np.save('./Fire-Detection-YOLOv8/fire_segmentation_output/trained_model_history.npy', hist.history)
+    model.save('./Fire-Detection-YOLOv8/fire_segmentation_output/trained_model.h5')
 
     return model
 
@@ -82,4 +82,4 @@ batchsize = 8
 model = train_model(val_generator, train_generator, batchsize)
 
 # Plotting the Training Metrices
-training_plot('./Fire-Detection-from-FLAME-Dataset/fire_segmentation_output/trained_model_history.npy')
+training_plot('./Fire-Detection-YOLOv8/fire_segmentation_output/trained_model_history.npy')
